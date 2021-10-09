@@ -1,4 +1,6 @@
+import { TransferenciaService } from './services/transferencia.service';
 import { Component } from '@angular/core';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ByteBank';
+  valor: number;
+
+  constructor() {this.valor = 0}
 }

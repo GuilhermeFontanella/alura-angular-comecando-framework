@@ -1,0 +1,30 @@
+<section class="container">
+  <h2 class="titulo">Transferências</h2>
+  <table class="tabela">
+  <thead class="tabela__cabecalho">
+    <th class="tabela__cabecalho__conteudo">Data</th>
+    <th class="tabela__cabecalho__conteudo">Valor</th>
+    <th class="tabela__cabecalho__conteudo">Destino</th>
+  </thead>
+  <tbody class="tabela__linha" *ngIf="transferencias.length >0; else listaVazia">
+    <tr *ngFor="let transferencia of transferencias">
+      <td class="tabela__conteudo">{{transferencia.data | date: 'dd/MM/yyyy - hh:mm:ss'}}</td>
+      <td class="tabela__conteudo">{{transferencia.valor | currency: 'BRL'}}</td>
+      <td class="tabela__conteudo">{{transferencia.destino}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="!message" style="margin-top: 10px; color: gray;">
+  <span>Valor total de transferências: {{valorTotalTransferencias | currency: 'BRL'}}</span>
+</div>
+
+<div *ngIf="message" style="margin-top: 10px; color: gray;">
+  <span>{{message}}</span>
+</div>
+
+<ng-template #listaVazia>
+  <p>Nenhuma Transferência Encontrada!</p>
+</ng-template>
+</section>
+
